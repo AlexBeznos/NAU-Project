@@ -2,5 +2,9 @@
 <br><br>
 
 <% @documents.each do |doc| %>
-	<p><%= doc.name %></p>
+  <% if doc.able_to_download?(current_user) %>
+    <p><%= link_to doc.name, doc.doc_path %></p>
+  <% else %>
+    <p><%= doc.name %>
+  <% end %>
 <% end %>

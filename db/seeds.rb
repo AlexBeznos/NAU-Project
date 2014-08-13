@@ -1,6 +1,7 @@
 %x[rake db:rollback]
 %x[rake db:rollback]
 %x[rake db:rollback]
+%x[rake db:rollback]
 %x[rake db:migrate]
 
 print "I'm starting..."

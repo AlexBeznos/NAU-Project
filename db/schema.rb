@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20140813102509) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",              default: "", null: false
-    t.integer  "sign_in_count",      default: 0,  null: false
+    t.string   "email",              default: "",    null: false
+    t.integer  "sign_in_count",      default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "aproved"
+    t.boolean  "aproved",            default: false
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"

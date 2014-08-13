@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'documents/:id' => 'home#show', :as => :documents
   get 'home/index'
+  get 'home/administration', :path => "administration"
   root to: "home#index"
   devise_for :users
   devise_for :admins

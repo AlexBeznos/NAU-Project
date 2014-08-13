@@ -4,6 +4,7 @@ class Devise::RegistrationsController < DeviseController
 
   # GET /resource/sign_up
   def new
+  	@category_ids = Category.all.map {|category| [category.name, category.id]}
     build_resource({})
     respond_with self.resource
   end

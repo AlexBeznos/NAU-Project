@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140813102509) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.boolean  "aproved",                default: false
+    t.boolean  "approved",               default: false
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"

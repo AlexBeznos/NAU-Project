@@ -13,7 +13,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
   <div><%= f.label :category_id %><br />
-  	<%= f.text_field :category_id %></div>
+  	<%= select_tag(:category_id, options_for_select(@category_ids)) %></div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

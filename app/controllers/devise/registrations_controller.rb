@@ -1,10 +1,9 @@
 class Devise::RegistrationsController < DeviseController
   prepend_before_filter :require_no_authentication, only: [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_scope!, only: [:edit, :update, :destroy]
-
+  before_filter :init_category_var, only: [:new, :show]
   # GET /resource/sign_up
   def new
-  	@category_ids = Category.all.map {|category| [category.name, category.id]}
     build_resource({})
     respond_with self.resource
   end
@@ -132,5 +131,9 @@ class Devise::RegistrationsController < DeviseController
 
   def account_update_params
     devise_parameter_sanitizer.sanitize(:account_update)
+  end
+
+  def init_category_var
+    @category_ids = Category.all.map {|category| [category.name, category.id]}
   end
 end

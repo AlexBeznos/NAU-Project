@@ -13,6 +13,10 @@
   <%= link_to 'In', new_user_session_path %>
 <% end %>
 <%= yield %>
-
+<ul>
+	<% Category.all.each do |category| %>
+	<li><%= link_to category.name, documents_path(category) %></li>
+	<% end %>
+</ul>
 </body>
 </html>

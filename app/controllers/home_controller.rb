@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
   end
 
-  def registration
+  def show
+    @documents = Category.find(params[:id]).documents
   end
 end

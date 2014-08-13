@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  get 'documents/:id' => 'home#show', :as => :documents
   get 'home/index'
-
-  get 'home/registration'
   root to: "home#index"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

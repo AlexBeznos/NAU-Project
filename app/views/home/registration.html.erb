@@ -1,8 +1,0 @@
-<h1>Home#registration</h1>
-<p>Find me in app/views/home/registration.html.erb</p>
-
-<%= form_tag(controller: "devise/registrations", action: "create") do %>
-
-  <p>Email: <%= text_field_tag(:email)%>
-<%= submit_tag "Submit", :class => "uk-button uk-button-success uk-width-1-1" %>
-<% end %>

@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   root to: "home#index"
   devise_for :users
   devise_for :admins
+
+  namespace "api" do
+    resources :documents
+    resources :users
+    resources :categories
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

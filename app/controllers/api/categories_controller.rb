@@ -3,7 +3,7 @@ module API
     # GET /categories
     # GET /categories.json
     def index
-      @categories = category.all
+      @categories = Category.all
 
       render json: @categories
     end
@@ -11,7 +11,7 @@ module API
     # GET /categories/1
     # GET /categories/1.json
     def show
-      @category = category.find(params[:id])
+      @category = Category.find(params[:id])
 
       render json: @category
     end
@@ -19,7 +19,7 @@ module API
     # POST /categories
     # POST /categories.json
     def create
-      @category = category.new(tl_params)
+      @category = Category.new(tl_params)
 
       if @category.save
         render json: @category, status: :created
@@ -31,7 +31,7 @@ module API
     # PATCH/PUT /categories/1
     # PATCH/PUT /categories/1.json
     def update
-      @category = category.find(params[:id])
+      @category = Category.find(params[:id])
 
       if @category.update(tl_params)
         head :no_content
@@ -43,7 +43,7 @@ module API
     # DELETE /categories/1
     # DELETE /categories/1.json
     def destroy
-      @category = category.find(params[:id])
+      @category = Category.find(params[:id])
       @category.destroy
 
       head :no_content

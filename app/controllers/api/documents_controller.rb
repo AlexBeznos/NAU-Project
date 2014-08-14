@@ -3,7 +3,7 @@ module API
     # GET /documents
     # GET /documents.json
     def index
-      @documents = document.all
+      @documents = Document.all
 
       render json: @documents
     end
@@ -11,7 +11,7 @@ module API
     # GET /documents/1
     # GET /documents/1.json
     def show
-      @document = document.find(params[:id])
+      @document = Document.find(params[:id])
 
       render json: @document
     end
@@ -19,7 +19,7 @@ module API
     # POST /documents
     # POST /documents.json
     def create
-      @document = document.new(tl_params)
+      @document = Document.new(tl_params)
 
       if @document.save
         render json: @document, status: :created
@@ -31,7 +31,7 @@ module API
     # PATCH/PUT /documents/1
     # PATCH/PUT /documents/1.json
     def update
-      @document = document.find(params[:id])
+      @document = Document.find(params[:id])
 
       if @document.update(tl_params)
         head :no_content
@@ -43,7 +43,7 @@ module API
     # DELETE /documents/1
     # DELETE /documents/1.json
     def destroy
-      @document = document.find(params[:id])
+      @document = Document.find(params[:id])
       @document.destroy
 
       head :no_content

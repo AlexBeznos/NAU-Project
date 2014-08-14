@@ -7,7 +7,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'

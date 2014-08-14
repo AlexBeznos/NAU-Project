@@ -11,6 +11,7 @@ class Devise::RegistrationsController < DeviseController
 
   # POST /resource
   def create
+    build_resource(sign_up_params)
     user = User.new(sign_up_params)
     user.category_id = params[:category_id].to_i
     if user.save

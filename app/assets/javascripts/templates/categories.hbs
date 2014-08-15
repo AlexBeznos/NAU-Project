@@ -1,0 +1,23 @@
+<br>
+<button class="btn btn-default" {{action 'openForm'}}>Add new category</button>
+{{#if isForm}}
+  <form rol="newTaskListCreation" class="navbar-form">
+    <div class="form-group">
+      {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Put your list name"}}
+    </div>
+    <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Submit</button>
+  </form>
+{{/if}}
+
+<ul>
+{{#each itemController="category"}}
+  <li>{{id}} -- 
+  {{#if isEdit}}
+    {{edit-record value=name focus-out="saveCategory" mouseenter="saveCategory" insert-newline="editCategory"}}
+  {{ else }}
+    <span {{action "editCategory" on="doubleClick"}}>{{name}}</span>
+  {{/if}}
+   -- <a href="#" {{action "deleteCategory"}}>Delete</a></li>
+{{/each}}
+</ul>
+

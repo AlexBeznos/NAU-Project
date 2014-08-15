@@ -1,0 +1,16 @@
+<ul>
+{{#each itemController='user'}}
+  <li>
+    {{id}} -- {{email}} -- 
+    <a href="#" {{action "approve"}}>
+    {{#if approved}}
+      Отклонить
+    {{ else }}
+      Подтвердить
+    {{/if}}
+    </a>
+  </li>
+{{/each}}
+</ul>
+
+{{numberApproved}}

@@ -51,7 +51,7 @@ module API
     
     private
     def tl_params
-      params.require(:User).permit(:email, :category_id, :approved)
+      params.require(:user).permit(:email, :approved, :category_id)
     end
   end
 end

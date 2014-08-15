@@ -1,4 +1,4 @@
 class CategorySerializer < ApplicationSerializer
-	attributes :id, :name, :approved
+	attributes :id, :name
 	has_many :users
 end

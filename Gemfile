@@ -1,6 +1,3 @@
-
-
-
 # View
 gem 'ember-rails'
 gem 'bootstrap-sass', '~> 3.2.0'

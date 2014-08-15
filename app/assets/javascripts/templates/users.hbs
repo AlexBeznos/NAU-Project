@@ -3,7 +3,7 @@
 <ul>
 {{#each itemController='user'}}
   <li>
-    {{id}} -- {{email}} -- 
+    {{id}} -- {{email}} -- {{category.name}} -- 
     <a href="#" {{action "approve"}}>
     {{#if approved}}
       Отклонить

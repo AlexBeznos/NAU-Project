@@ -1,0 +1,24 @@
+<form class="form-inline">
+  <div class="form-group">
+    Name: {{input type="text" value=model.name}}
+  </div><br>
+  <div class="form-group">
+    path: {{model.doc_path}}
+  </div><br>
+  <div class="form-group">
+    New file: {{input type="file" valueBinding="documentFile"}}
+  </div><br>
+  <div class="form-group">
+    <p>Categories which it include now</p>
+    {{#each model.category_ids}}
+      {{name}}<br>
+    {{/each}}
+  <div class="form-group">
+    <p>You can change it</p>
+    {{#each categories}}
+       <input type="checkbox" {{bind-attr value="id"}}> {{name}}<br>
+    {{/each}}
+  </div>
+  <button type="submit" {{action 'createDocument'}} class="btn btn-success">Submit</button>
+</form>
+<a {{action 'shit'}}>some</a>

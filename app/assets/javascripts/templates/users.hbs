@@ -5,11 +5,11 @@
   <li>
     {{id}} -- {{email}} -- {{category.name}} -- 
     <a href="#" {{action "approve"}}>
-    {{#if approved}}
-      Отклонить
-    {{ else }}
-      Подтвердить
-    {{/if}}
+      {{#if approved}}
+        Отклонить
+      {{ else }}
+        Подтвердить
+      {{/if}}
     </a>
   </li>
 {{/each}}

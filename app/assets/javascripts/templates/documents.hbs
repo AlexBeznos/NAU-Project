@@ -1,0 +1,7 @@
+<br>
+{{#each itemController="document"}}
+	<li>{{name}} -- {{doc_path}} -- <a href="" {{action 'updateForm'}}>Update</a> -- <a href="" {{action 'delete'}}>Delete</a></li>
+  {{#if isUpdating}}
+    {{render 'updateForm' this}}
+  {{/if}}
+{{/each}}

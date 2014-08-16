@@ -1,5 +1,5 @@
 NauProj.DocumentsRoute = Ember.Route.extend({
 	model: function() {
-		this.store.find('document')
+		return this.store.find('document')
 	}
 });

@@ -13,12 +13,13 @@
     {{#each model.category_ids}}
       {{name}}<br>
     {{/each}}
+  </div><br><br>
   <div class="form-group">
     <p>You can change it</p>
-    {{#each categories}}
-       <input type="checkbox" {{bind-attr value="id"}}> {{name}}<br>
+    {{#each proxiedCategory}}
+       {{input type="checkbox" checked=checked}} {{content.name}}<br>
     {{/each}}
-  </div>
+  </div><br>
   <button type="submit" {{action 'createDocument'}} class="btn btn-success">Submit</button>
 </form>
 <a {{action 'shit'}}>some</a>

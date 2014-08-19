@@ -1,6 +1,4 @@
 NauProj.UpdateFormController = Ember.Controller.extend({
-  needs: 'document',
-  documentController: Ember.computed.alias("controllers.document"),
   categories: function() {
     return this.store.find('category')
   }.property('store'),
@@ -30,14 +28,13 @@ NauProj.UpdateFormController = Ember.Controller.extend({
         processData: false,  // tell jQuery not to process the data
         contentType: false,
         success: function(res) {
-          controller.get('model').set('doc_path', res.doc_path)
+          controller.get('model').set('doc_path', res.doc_path);
+          $("#uploadForm").prepend("Success!");
         },
         error: function(res) {
-          console.log(res)
+          $("#uploadForm").prepend(res.error);
         }
       });
-
-      this.get('documentController').set('isUpdating', false);
     }
   }
 })

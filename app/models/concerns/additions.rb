@@ -7,9 +7,15 @@ module Additions
     end
   end
 
-  def file_path(param)
+  def file_path(file)
   	session = GoogleDrive.login('nauproj@gmail.com', '7895123Boo')
-  	param[:document][:documentFile].original_filename
+  	name = file.original_filename
+  	path = File.join("public", name)
+
+  	File.open(path, "wb") { |f| f.write(file.read) }
+	file = session.upload_from_file(path)
+
+  	File.delete(path)
     self.doc_path = file.human_url
   end
 end

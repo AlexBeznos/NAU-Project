@@ -17,7 +17,8 @@ NauProj.UpdateFormController = Ember.Controller.extend({
   actions: {
     updateDocument: function() {
       var id = this.get('model').get('id'),
-          fd = new FormData(document.getElementById("uploadForm"));
+          fd = new FormData(document.getElementById("uploadForm")),
+          controller = this;
       
       fd.append("name", this.get('model').get('name'));
       fd.append("categories", this.get('proxiedItems'));   
@@ -27,12 +28,16 @@ NauProj.UpdateFormController = Ember.Controller.extend({
         type: 'PUT',
         data: fd,
         processData: false,  // tell jQuery not to process the data
-        contentType: false,   // tell jQuery not to set contentType
-        success: function(result) {
-          console.log(result);
-          controller.get('documentController').set('isUpdating', false);
+        contentType: false,
+        success: function(res) {
+          controller.get('model').set('doc_path', res.doc_path)
+        },
+        error: function(res) {
+          console.log(res)
         }
       });
+
+      this.get('documentController').set('isUpdating', false);
     }
   }
 })

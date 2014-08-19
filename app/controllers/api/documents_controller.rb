@@ -32,12 +32,17 @@ module API
     # PATCH/PUT /documents/1.json
     def update
       @document = Document.find(params[:id])
-      if params[:document][:documentFile]
-        @document.file_path(params[:document][:documentFile])
+      @document.name = params[:name] if params[:name]
+
+      if params[:file]
+        @document.file_path(params[:file])
       end
 
-      if @document.update(tl_params)
-        head :no_content
+      hash = {
+        doc_path: @document.doc_path
+      }
+      if @document.save
+        render json: hash, status: 200
       else
         render json: @document.errors, status: :unprocessable_entity
       end

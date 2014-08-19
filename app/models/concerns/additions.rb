@@ -18,4 +18,17 @@ module Additions
   	File.delete(path)
     self.doc_path = file.human_url
   end
+
+  def associations(ids)
+  	ids = ids.split(',').map!(&:to_i)
+
+  	self.categories.each do |category|
+  		self.categories.delete(category) unless ids.include?(category.id)
+  	end
+
+  	ids.each do |id|
+  		category = Category.find(id)
+  		self.categories << category unless self.categories.include?(category)
+  	end
+  end
 end

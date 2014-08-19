@@ -38,6 +38,10 @@ module API
         @document.file_path(params[:file])
       end
 
+      if params[:categories]
+        @document.associations(params[:categories])
+      end
+
       hash = {
         doc_path: @document.doc_path
       }

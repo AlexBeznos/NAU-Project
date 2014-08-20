@@ -8,6 +8,9 @@ NauProj.DocumentController = Ember.ObjectController.extend({
 		},
 		updateForm: function() {
 			this.get('isUpdating') ? this.set('isUpdating', false) : this.set('isUpdating', true)
-		}
+		},
+    toggleForm: function() {
+      this.get('isForm') ? this.set('isForm', false) : this.set('isForm', true)
+    }
 	}
-})
+});

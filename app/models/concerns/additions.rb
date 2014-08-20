@@ -19,7 +19,8 @@ module Additions
     self.doc_path = file.human_url
   end
 
-  def associations(ids)
+
+  def update_associations(ids)
   	ids = ids.split(',').map!(&:to_i)
 
   	self.categories.each do |category|

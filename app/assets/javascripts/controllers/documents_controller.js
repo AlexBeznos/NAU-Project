@@ -20,24 +20,31 @@ NauProj.DocumentsController = Ember.ArrayController.extend({
     createDocument: function() {
       var fd = new FormData(document.getElementById("createDocument")),
           controller = this;
-      
-      fd.append("name", this.get("documentName"));
       fd.append("categories", this.get('proxiedItems'));   
 
-      Ember.$.ajax({
-        url: '/api/documents/',
-        type: 'POST',
-        data: fd,
-        processData: false,  // tell jQuery not to process the data
-        contentType: false,
-        success: function(res) {
-          controller.get('model').set('doc_path', res.doc_path);
-          $("#createDocument").prepend("Success!");
-        },
-        error: function(res) {
-          $("#createDocument").prepend(res.error);
-        }
+      doc = this.store.createRecord('document', {
+        name: this.get('documentName'),
+        doc_path: 'Is uploading'
       });
+
+      doc.save().then(function(doc) {
+        $("#createDocument").prepend("Please wait! Your file is uploading!");
+        Ember.$.ajax({
+          url: '/api/documents/'+ doc.id,
+          type: 'PUT',
+          data: fd,
+          processData: false,
+          contentType: false,
+          success: function(res) {
+            doc.set('doc_path', res.doc_path);
+            controller.set('isForm', false);
+          },
+          error: function(res) {
+            $("#createDocument").prepend(res.error);
+          }
+        });
+      })
+
     }
   }
 });

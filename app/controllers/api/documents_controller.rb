@@ -39,10 +39,11 @@ module API
       end
 
       if params[:categories]
-        @document.associations(params[:categories])
+        @document.update_associations(params[:categories])
       end
 
       hash = {
+        id: @document.id,
         doc_path: @document.doc_path
       }
       if @document.save

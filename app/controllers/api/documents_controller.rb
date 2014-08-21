@@ -33,6 +33,7 @@ module API
     def update
       @document = Document.find(params[:id])
       @document.name = params[:name] if params[:name]
+      @document.open = params[:open] if params[:open]
 
       if params[:file]
         @document.file_path(params[:file])
@@ -44,7 +45,8 @@ module API
 
       hash = {
         id: @document.id,
-        doc_path: @document.doc_path
+        doc_path: @document.doc_path,
+        open: @document.open
       }
       if @document.save
         render json: hash, status: 200

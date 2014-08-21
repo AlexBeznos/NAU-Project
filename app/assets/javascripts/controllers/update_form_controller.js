@@ -19,7 +19,10 @@ NauProj.UpdateFormController = Ember.Controller.extend({
           controller = this;
       
       fd.append("name", this.get('model').get('name'));
-      fd.append("categories", this.get('proxiedItems'));   
+      if(this.get('proxiedItems').length != 0) {
+        fd.append("categories", this.get('proxiedItems'))
+      }; 
+      fd.append("open", this.get('open'));
 
       Ember.$.ajax({
         url: '/api/documents/' + id,
@@ -29,6 +32,7 @@ NauProj.UpdateFormController = Ember.Controller.extend({
         contentType: false,
         success: function(res) {
           controller.get('model').set('doc_path', res.doc_path);
+          controller.get('model').set('open', res.open);
           $("#uploadForm").prepend("Success!");
         },
         error: function(res) {

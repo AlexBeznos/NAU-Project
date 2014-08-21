@@ -10,6 +10,9 @@
     {{input type="file" class="form-control" name="file"}}
   </div><br>
   <div class="form-group">
+    Is it in open access? {{input type="checkbox" checked=open}}
+  </div><br>
+  <div class="form-group">
     <p>Categories which it include now</p>
     {{#each model.category_ids}}
       {{name}}<br>

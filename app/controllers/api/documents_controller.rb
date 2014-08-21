@@ -64,7 +64,7 @@ module API
     
     private
     def tl_params
-      params.require(:document).permit(:name, :doc_path)
+      params.require(:document).permit(:name, :doc_path, :open)
     end
   end
 end

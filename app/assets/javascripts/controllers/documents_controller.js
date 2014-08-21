@@ -24,7 +24,8 @@ NauProj.DocumentsController = Ember.ArrayController.extend({
 
       doc = this.store.createRecord('document', {
         name: this.get('documentName'),
-        doc_path: 'Is uploading'
+        doc_path: 'Is uploading',
+        open: this.get('open')
       });
 
       doc.save().then(function(doc) {

@@ -7,20 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user %>
-  <%= link_to 'Out', destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to 'In', new_user_session_path %>
-<% end %>
-<div>
-<%= yield %>
-</div>
-<div class="categories">
-	<ul>
-	  <% Category.all.each do |category| %>
-	    <li><%= link_to category.name, documents_path(category) %></li>
-	  <% end %>
-	</ul>
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-9">
+      <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+      </p>
+      <div class="jumbotron logo">
+      </div>
+        <% if current_user %>
+        <%= link_to 'Out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'In', new_user_session_path %>
+      <% end %>
+      <div>
+      <%= yield %>
+      </div>
+      <div class="categories">
+        <ul>
+          <% Category.all.each do |category| %>
+            <li><%= link_to category.name, documents_path(category) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

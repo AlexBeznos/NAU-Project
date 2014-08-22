@@ -2,13 +2,13 @@
 	margin-top: 10em;
 }
 
-.jumbotron {
+.logo {
 	background: url('/assets/nau.jpg');
 	background-size: 100% auto;
 }
 
 @media (min-width: 1199px) {
-	.jumbotron:before {
+	.logo:before {
 		content: "";
 		display: block;
 		padding-top: 24%;
@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 1199px) and (min-width: 992px) {
-	.jumbotron:before {
+	.logo:before {
 		content: "";
 		display: block;
 		padding-top: 22%;
@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 992px) and (min-width: 768px) {
-	.jumbotron:before {
+	.logo:before {
 		content: "";
 		display: block;
 		padding-top: 18%;
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 767px) and (min-width: 480px) {
-	.jumbotron:before {
+	.logo:before {
 		content: "";
 		display: block;
 		padding-top: 21.5%;
@@ -40,7 +40,7 @@
 }
 
 @media (max-width: 480px) {
-	.jumbotron:before {
+	.logo:before {
 		content: "";
 		display: block;
 		padding-top: 19%;

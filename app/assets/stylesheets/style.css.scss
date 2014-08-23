@@ -11,6 +11,22 @@
 	background-size: 100% auto;
 }
 
+.certificate {
+	background: url('/assets/certificate.jpg');
+	opacity: 0.3;
+	width: 164px;
+	height: 74px;
+	&:hover {
+	  animation: opp 1s;
+	  opacity: 1;
+	}
+}
+
+@keyframes opp {
+    from {opacity: 0.3}
+    to {opacity: 1}
+}
+
 @media (min-width: 1199px) {
 	.logo:before {
 		content: "";

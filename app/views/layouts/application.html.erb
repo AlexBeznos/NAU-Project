@@ -23,6 +23,13 @@
           <%= active_li_tag "Документація СМК", home_smk_url %>
           <%= active_li_tag "Зовнішня документація", home_external_url %>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><%= link_to 'Вийти', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Увійти', new_user_session_path %></li>
+          <% end %>
+        </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
   </div><!-- /.navbar -->
@@ -37,11 +44,6 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <% if current_user %>
-              <%= link_to 'Out', destroy_user_session_path, :method => :delete %>
-            <% else %>
-              <%= link_to 'In', new_user_session_path %>
-            <% end %>
             <%= yield %>
           </div><!-- /.col -->
         </div><!-- /.row -->

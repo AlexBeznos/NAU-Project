@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'documents/:id' => 'home#show', :as => :documents
   get 'home/index'
   get 'home/administration', :path => "administration"
+  get 'home/smk', :path => "smk"
+  get 'home/external', :path => "external"
   root to: "home#index"
   devise_for :users
   devise_for :admins

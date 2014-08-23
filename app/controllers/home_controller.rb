@@ -8,6 +8,12 @@ class HomeController < ApplicationController
     @documents = Category.find(params[:id]).documents
   end
 
+  def smk
+  end
+
+  def external
+  end
+
   def administration
   	render layout: 'admin'
   end

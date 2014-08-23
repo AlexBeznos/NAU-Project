@@ -16,13 +16,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "NAU Docs", root_url, :class => "navbar-brand" %>
+        <%= link_to "NAU Docs", root_url, :class => "navbar-brand brand" %>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <%= active_li_tag "Документація СМК", home_smk_url %>
+          <%= active_li_tag "Зовнішня документація", home_external_url %>
         </ul>
       </div><!-- /.nav-collapse -->
     </div><!-- /.container -->
@@ -50,7 +49,7 @@
       <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
         <div class="list-group">
           <% Category.all.each do |category| %>
-            <%= link_to category.name, documents_path(category), :class => is_active?(documents_path(category), "list-group-item", "active") %>
+            <%= link_to category.name, documents_path(category), :class => is_active?(documents_path(category), "active", "list-group-item") %>
           <% end %>
         </div>
       </div><!--/span-->

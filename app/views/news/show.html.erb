@@ -1,4 +1,6 @@
-<section>
-  <header><%= @news.title %></header>
-  <article><%= @news.body %></article>
-</section>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @news.title %>
+  </div>
+  <div class="panel-body"><%= @news.body.html_safe %></div>
+</div>

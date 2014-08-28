@@ -9,6 +9,7 @@ class HomeController < ApplicationController
   end
 
   def smk
+  	@documents = Document.where(open: true)
   end
 
   def external

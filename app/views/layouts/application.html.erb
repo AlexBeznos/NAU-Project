@@ -16,14 +16,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "NAU Docs", root_url, :class => "navbar-brand brand" %>
+        <%= link_to "Система менеджменту якості НАУ", root_url, :class => "navbar-brand brand" %>
       </div>
       <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           <%= active_li_tag "Документація СМК", home_smk_url %>
           <%= active_li_tag "Зовнішня документація", home_external_url %>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li><%= link_to 'Вийти', destroy_user_session_path, :method => :delete %></li>
           <% else %>
@@ -35,7 +33,14 @@
   </div><!-- /.navbar -->
 
   <div class="container">
-    <div class="row row-offcanvas row-offcanvas-right">
+    <div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="list-group">
+          <% Category.all.each do |category| %>
+            <%= link_to category.name, documents_path(category), :class => is_active?(documents_path(category), "active", "list-group-item") %>
+          <% end %>
+        </div>
+      </div><!--/span-->
       <div class="col-xs-12 col-sm-9">
         <p class="pull-right visible-xs">
           <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
@@ -44,17 +49,15 @@
         </div>
         <div class="row">
           <div class="col-12">
+            <% if flash[:notice] %>
+              <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+            <% elsif flash[:alert]  %>
+              <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+            <% end %>
             <%= yield %>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.col -->
-      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-        <div class="list-group">
-          <% Category.all.each do |category| %>
-            <%= link_to category.name, documents_path(category), :class => is_active?(documents_path(category), "active", "list-group-item") %>
-          <% end %>
-        </div>
-      </div><!--/span-->
     </div><!-- /.row -->
     <hr>
 

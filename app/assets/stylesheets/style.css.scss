@@ -1,5 +1,5 @@
  .brand {
- 	font-size: 2em;
+ 	font-size: 1.3em;
  }
 
 .categories {
@@ -25,6 +25,13 @@
 @keyframes opp {
     from {opacity: 0.3}
     to {opacity: 1}
+}
+
+
+@media (min-width: 768px) {
+	.merge {
+		padding-bottom: 30px; 
+	}
 }
 
 @media (min-width: 1199px) {

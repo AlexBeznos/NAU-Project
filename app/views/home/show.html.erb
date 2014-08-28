@@ -3,7 +3,7 @@
     <tr>
       <td>
         <% if doc.able_to_download?(current_user) %>
-          <%= link_to doc.name, doc.doc_path %>
+          <%= link_to doc.name, doc.doc_path, :target => "_blank" %>
         <% else %>
           <%= doc.name %>
         <% end %>

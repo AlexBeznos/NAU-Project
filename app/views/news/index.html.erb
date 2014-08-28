@@ -1,0 +1,6 @@
+<% @news.each do |news| %>
+<section>
+  <header><%= link_to news.title, news_path(news.alias) %></header>
+  <article><%= news.body %></article>
+</section>
+<% end %>

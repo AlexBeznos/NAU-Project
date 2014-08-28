@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   get 'documents/:id' => 'home#show', :as => :documents
   get 'home/index'
   get 'home/administration', :path => "administration"
-  get 'home/smk', :path => "smk"
+  get 'home/smq', :path => "smq"
   get 'home/external', :path => "external"
+  get 'news/index', :path => "news"
+  get 'news/:alias' => 'news#show', :as => :news
+
   root to: "home#index"
   devise_for :users
   devise_for :admins

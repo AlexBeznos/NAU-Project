@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     @documents = Category.find(params[:id]).documents
   end
 
-  def smk
+  def smq
   	@documents = Document.where(open: true)
   end
 

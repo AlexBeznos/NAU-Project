@@ -1,6 +1,12 @@
 <% @news.each do |news| %>
-<section>
-  <header><%= link_to news.title, news_path(news.alias) %></header>
-  <article><%= news.body %></article>
-</section>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to news.title, news_path(news.alias) %>
+  </div>
+  <div class="panel-body ellipsis multiline"><%= news.body.html_safe %></div>
+</div>
 <% end %>
+
+<script type="text/javascript">
+$(".ellipsis").ellipsis();
+</script>

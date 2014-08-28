@@ -2,6 +2,15 @@
  	font-size: 1.3em;
  }
 
+.ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.ellipsis.multiline {
+	white-space: normal;
+}
+
 .categories {
 	margin-top: 10em;
 }

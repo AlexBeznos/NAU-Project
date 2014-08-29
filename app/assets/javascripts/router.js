@@ -4,5 +4,6 @@ NauProj.Router.map(function() {
 	this.route('index', { path: '/'}),
 	this.resource('users'),
 	this.resource('categories'),
-	this.resource('documents')
+	this.resource('documents'),
+	this.resource('news')
 });

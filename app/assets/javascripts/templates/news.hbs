@@ -1,0 +1,27 @@
+<br>
+<button class="btn btn-default" {{action 'openForm'}}>Add new news</button>
+{{#if isForm}}
+  <form>
+    <div class="form-group">
+      {{input type="text" valueBinding="newsTitle" class="form-control" placeholder="Put your list name"}}
+    </div>
+    <div class="form-group">
+    	{{wysiwyg-editor content=newsContent header="Example"}}  
+    </div>
+    <div class="form-group">
+      {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Put your list name"}}
+    </div>
+    <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Submit</button>
+  </form>
+{{/if}}
+{{#each}}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    {{ title }}
+  </div>
+  <div class="panel-body">{{ body }}</div>
+  <div class="panel-footer">{{ alias }}</div>
+</div>
+
+{{/each }}

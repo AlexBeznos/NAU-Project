@@ -22,9 +22,14 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       {{ title }}
-      <a {{action 'destroy'}} class="pull-right">
-        <span class="glyphicon glyphicon-floppy-remove"></span>
-      </a>
+      <div class="btn-group pull-right bad_code">
+        <button {{action 'edit'}} class="btn btn-default">
+          <span class="glyphicon glyphicon glyphicon-edit"></span>
+        </button>
+        <button {{action 'destroy'}} class="btn btn-default">
+          <span class="glyphicon glyphicon-floppy-remove"></span>
+        </button>
+      </div>
     </div>
     <div class="panel-body">{{ body }}</div>
     <div class="panel-footer">{{ alias }}</div>

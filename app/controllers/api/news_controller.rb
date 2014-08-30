@@ -51,7 +51,7 @@ module API
     
     private
     def tl_params
-      params.require(:News).permit(:title, :body, :alias)
+      params.require(:news).permit(:title, :body, :alias)
     end
   end
 end

@@ -24,8 +24,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">СМЯ<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><%= link_to "Новини СМЯ", news_index_path %></li>
-              <li><a href="#">Структура</a></li>
-              <li><a href="#">Сертифікати</a></li>
+              <% Pages.all.each do |page| %>
+                <li><%= link_to page.name, pages_path(page)) %></li>
+              <% end %>
             </ul>
           </li>
           <%= active_li_tag "Документація СМК", home_smq_url %>

@@ -51,7 +51,7 @@ module API
     
     private
     def tl_params
-      params.require(:pages).permit(:content, :alias)
+      params.require(:pages).permit(:content, :alias, :name)
     end
   end
 end

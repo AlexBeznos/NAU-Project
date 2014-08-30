@@ -1,6 +1,6 @@
 NauProj.NewsController = Ember.ArrayController.extend({
   isForm: false,
-  newsContent: "Someshit",
+  newsContent: "",
 	actions: {
     createCategory: function() {
       console.log(this.get('newsContent'));

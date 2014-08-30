@@ -13,17 +13,7 @@ NauProj.WysiwygEditorComponent = Ember.Component.extend({
     var height = this.get('height');
 
     this.$('textarea').summernote({
-      height: height,
-      toolbar: [
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['fontsize', ['fontsize']],
-        ['color', ['color']],
-        ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
-        ['insert', ['link']],
-        ['table', ['table']],
-        ['help', ['help']]
-      ]
+      height: height
     });
 
     var content = this.get('content');

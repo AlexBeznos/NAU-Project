@@ -1,17 +1,20 @@
 NauProj.NewsController = Ember.ArrayController.extend({
   isForm: false,
   newsContent: "",
-	actions: {
+  actions: {
     createNews: function() {
+      var controller = this;
       news = this.store.createRecord('news', {
-      	title: this.get('newsTitle'),
-      	body: this.get('newsContent'),
-      	alias: this.get('newsAlias')
+        title: this.get('newsTitle'),
+        body: this.get('newsContent'),
+        alias: this.get('newsAlias')
       });
-      news.save();
+      news.save().then(function() {
+        controller.set('isForm', false)
+      });
     },
     openForm: function() {
       this.get('isForm') ? this.set('isForm', false) : this.set('isForm', true)
     }
-	}
+  }
 });

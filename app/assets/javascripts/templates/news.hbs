@@ -18,10 +18,13 @@
   </div>
 {{/if}}
 
-{{#each}}
+{{#each itemController="OneNews"}}
   <div class="panel panel-default">
     <div class="panel-heading">
       {{ title }}
+      <a {{action 'destroy'}} class="pull-right">
+        <span class="glyphicon glyphicon-floppy-remove"></span>
+      </a>
     </div>
     <div class="panel-body">{{ body }}</div>
     <div class="panel-footer">{{ alias }}</div>

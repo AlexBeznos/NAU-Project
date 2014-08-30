@@ -2,6 +2,14 @@
 	margin: 0 2px;
 }
 
+.smaller-td {
+	max-width: 700px;
+}
+
+.panel-body .table {
+	border: 4px double white;
+}
+
 .approve {
 	min-width: 100px;
 }

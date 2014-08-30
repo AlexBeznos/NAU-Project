@@ -1,30 +1,67 @@
 <br>
-<button class="btn btn-success" {{action "toggleForm"}}>Open form</button>
+<button class="btn btn-default center-block btn-with_margin" {{action "toggleForm"}}>Open form</button>
 {{#if isForm}}
-  <form class="form-inline" id="createDocument">
-    <div class="form-group">
-      Name: {{input type="text" valueBinding="documentName"}}
-    </div><br>
-    <div class="form-group">
-      New file:
-      {{input type="file" class="form-control" name="file"}}
-    </div><br>
-    <div class="form-group">
-      Is it in open access? {{input type="checkbox" checked=open}}
-    </div><br>
-    <div class="form-group">
-      <p>You can change it</p>
-      {{#each proxiedCategory}}
-        {{input type="checkbox" checked=checked}} {{content.name}}<br>
-      {{/each}}
-    </div><br>
-    <button type="submit" {{action 'createDocument'}} class="btn btn-success">Submit</button>
-  </form>
+  <div class="panel panel-success">
+    <div class="panel-body">
+      <form class="form-horizontal" role="form" id="createDocument">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Name:</label>
+          <div class="col-sm-10">
+            {{input class="form-control" valueBinding="documentName"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">File:</label>
+          <div class="col-sm-10">
+            {{input type="file" class="form-control" name="file"}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Is it in open access?</label>
+          <div class="col-sm-10">
+            {{input type="checkbox" checked=open}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Categories:</label>
+          <div class="col-sm-10">
+            <ul class="list-group">
+              {{#each proxiedCategory}}
+                <li class="list-group-item">{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="btn-group">
+              <button {{action 'createDocument'}} class="btn btn-success">Upload</button>
+              <button {{action "toggleForm"}} class="btn btn-default">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 {{/if}}
 
-{{#each itemController="document"}}
-	<li>{{name}} -- {{doc_path}} -- <a href="" {{action 'updateForm'}}>Update</a> -- <a href="" {{action 'delete'}}>Delete</a></li>
-  {{#if isUpdating}}
-    {{render 'updateForm' this}}
-  {{/if}}
+{{#each itemController='document'}}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{#if isUpdating}}
+        {{render 'updateForm' this}}
+      {{ else }}
+        <table class="table">
+          <tbody>
+              <tr>
+                <td>{{name}}</td>
+                <td class="smaller-td">{{doc_path}}</td>
+                <td><a href="" {{action 'updateForm'}}>Update</a></td>
+                <td><a href="" {{action 'delete'}}>Delete</a></td>
+              </tr>
+          </tbody>
+        </table>
+      {{/if}}
+    </div>
+  </div>
 {{/each}}

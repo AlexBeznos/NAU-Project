@@ -19,19 +19,36 @@
 {{/if}}
 
 {{#each itemController="OneNews"}}
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      {{ title }}
-      <div class="btn-group pull-right bad_code">
-        <button {{action 'edit'}} class="btn btn-default">
-          <span class="glyphicon glyphicon glyphicon-edit"></span>
-        </button>
-        <button {{action 'destroy'}} class="btn btn-default">
-          <span class="glyphicon glyphicon-floppy-remove"></span>
-        </button>
+  {{#if isEditing}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{input type="text" value=title class="form-control"}}
+      </div>
+      <div class="panel-body">
+        {{wysiwyg-editor content=body}} 
+      </div>
+      <div class="panel-footer">
+        {{input type="text" value=alias class="form-control"}}
+      </div>
+      <div class="panel-body">
+        <button {{action 'editIt'}} class="btn btn-success center-block">Submit</button>
       </div>
     </div>
-    <div class="panel-body">{{ body }}</div>
-    <div class="panel-footer">{{ alias }}</div>
-  </div>
+  {{ else }}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{ title }}
+        <div class="btn-group pull-right bad_code">
+          <button {{action 'edit'}} class="btn btn-default">
+            <span class="glyphicon glyphicon glyphicon-edit"></span>
+          </button>
+          <button {{action 'destroy'}} class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-remove"></span>
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">{{{ body }}}</div>
+      <div class="panel-footer">{{ alias }}</div>
+    </div>
+  {{/if}}
 {{/each }}

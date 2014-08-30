@@ -1,9 +1,16 @@
-<br>
-{{#link-to 'categories'}}Categories{{/link-to}}
-<br>
-{{#link-to 'documents'}}Documents{{/link-to}}
-<br>
-{{#link-to 'users'}}Users{{/link-to}}
-<br>
-{{#link-to 'news'}}News{{/link-to}}
-{{ outlet }}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+      <li class="active">{{#link-to 'index'}}Main page{{/link-to}}</li>
+        <li>{{#link-to 'categories'}}Categories{{/link-to}}</li>
+        <li>{{#link-to 'documents'}}Documents{{/link-to}}</li>
+        <li>{{#link-to 'users'}}Users{{/link-to}}</li>
+        <li>{{#link-to 'news'}}News{{/link-to}}</li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      {{ outlet }}
+    </div>
+  </div>
+</div>

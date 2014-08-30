@@ -49,18 +49,13 @@
   <div class="panel panel-default">
     <div class="panel-body">
       {{#if isUpdating}}
+        <button {{action 'updateForm'}} class="btn btn-default center-block">Close</button>
         {{render 'updateForm' this}}
       {{ else }}
-        <table class="table">
-          <tbody>
-              <tr>
-                <td>{{name}}</td>
-                <td class="smaller-td">{{doc_path}}</td>
-                <td><a href="" {{action 'updateForm'}}>Update</a></td>
-                <td><a href="" {{action 'delete'}}>Delete</a></td>
-              </tr>
-          </tbody>
-        </table>
+        <div class="doc">{{name}}</div>
+        <div class="doc">{{doc_path}}</div>
+        <div class="doc pull-right"><a href="" {{action 'delete'}}><span class="glyphicon glyphicon-floppy-remove"></span></a></div>
+        <div class="doc pull-right"><a href="" {{action 'updateForm'}}><span class="glyphicon glyphicon glyphicon-edit"></span></a></div>
       {{/if}}
     </div>
   </div>

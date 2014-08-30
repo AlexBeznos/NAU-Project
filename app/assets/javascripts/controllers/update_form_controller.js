@@ -33,7 +33,7 @@ NauProj.UpdateFormController = Ember.Controller.extend({
         success: function(res) {
           controller.get('model').set('doc_path', res.doc_path);
           controller.get('model').set('open', res.open);
-          $("#uploadForm").prepend("Success!");
+          $("#uploadForm").prepend("<div class='alert alert-success' role='alert'>Success!!!</div>");
         },
         error: function(res) {
           $("#uploadForm").prepend(res.error);

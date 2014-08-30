@@ -1,23 +1,40 @@
 <br>
-<button class="btn btn-default" {{action 'openForm'}}>Add new category</button>
+<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Add new category</button>
 {{#if isForm}}
-  <form class="navbar-form">
-    <div class="form-group">
-      {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Put your list name"}}
+  <div class="panel panel-warning panel-category center-block">
+    <div class="panel-body">
+      <form class="navbar-form center-btn">
+        <div class="form-group">
+          {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Put your list name"}}
+        </div>
+        <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Submit</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Submit</button>
-  </form>
+  </div>
 {{/if}}
 
-<ul>
-{{#each itemController="category"}}
-  <li>{{id}} -- 
-  {{#if isEdit}}
-    {{edit-record value=name focus-out="saveCategory" mouseenter="saveCategory" insert-newline="editCategory"}}
-  {{ else }}
-    <span {{action "editCategory" on="doubleClick"}}>{{name}}</span>
-  {{/if}}
-   -- <a href="#" {{action "deleteCategory"}}>Delete</a></li>
-{{/each}}
-</ul>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Сategory</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each itemController='category'}}
+      <tr>
+        <td>{{id}}</td>
+        <td>
+          {{#if isEdit}}
+            {{edit-record value=name focus-out="saveCategory" mouseenter="saveCategory" insert-newline="saveCategory"}}
+          {{ else }}
+            <span {{action "editCategory" on="doubleClick"}}>{{name}}</span>
+          {{/if}}
+        </td>
+        <td><a {{action "deleteCategory"}}><span class="glyphicon glyphicon-floppy-remove"></span></a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
 

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'home/external', :path => "external"
   get 'news/index', :path => "news"
   get 'news/:alias' => 'news#show', :as => :news
+  get 'pages/:alias' => 'pages#show', :as => :pages
 
   root to: "home#index"
   devise_for :users
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     resources :news
+    resources :pages
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

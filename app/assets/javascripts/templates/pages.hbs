@@ -1,0 +1,59 @@
+<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Add new page</button>
+{{#if isForm}}
+  <div class="panel panel-warning">
+    <div class="panel-body">
+    <form>
+      <div class="form-group">
+        {{input type="text" valueBinding="pageName" class="form-control" placeholder="Название"}}
+      </div>
+      <div class="form-group">
+        {{wysiwyg-editor content=pageContent}}  
+      </div>
+      <div class="form-group">
+        {{input type="text" valueBinding="pageAlias" class="form-control" placeholder="Алиас"}}
+      </div>
+      <button type="submit" class="btn btn-success" {{action 'createPage'}}>Submit</button>
+    </form>
+    </div>
+  </div>
+{{/if}}
+
+{{#each itemController="page"}}
+  {{#if isEditing}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{input type="text" value=name class="form-control"}}
+      </div>
+      <div class="panel-body">
+        {{wysiwyg-editor content=page_content}} 
+      </div>
+      <div class="panel-footer">
+        {{input type="text" value=alias class="form-control"}}
+      </div>
+      <div class="panel-body">
+        <div class="center-btn">
+          <div class="btn-group">
+            <button {{action 'editIt'}} class="btn btn-success">Submit</button>
+            <button {{action 'edit'}} class="btn btn-default">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{ else }}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{ name }}
+        <div class="btn-group pull-right bad_code">
+          <button {{action 'edit'}} class="btn btn-default">
+            <span class="glyphicon glyphicon glyphicon-edit"></span>
+          </button>
+          <button {{action 'destroy'}} class="btn btn-default">
+            <span class="glyphicon glyphicon-floppy-remove"></span>
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">{{{ page_content }}}</div>
+      <div class="panel-footer">{{ alias }}</div>
+    </div>
+  {{/if}}
+{{/each }}

@@ -5,5 +5,6 @@ NauProj.Router.map(function() {
 	this.resource('users'),
 	this.resource('categories'),
 	this.resource('documents'),
-	this.resource('news')
+	this.resource('news'),
+	this.resource('pages')
 });

@@ -24,7 +24,7 @@ module API
       if @pages.save
         render json: @pages, status: :created
       else
-         render json: @pages.errors, status: :unprocessable_entity
+        render json: @pages.errors, status: :unprocessable_entity
       end
     end
 
@@ -51,7 +51,7 @@ module API
     
     private
     def tl_params
-      params.require(:pages).permit(:content, :alias, :name)
+      params.require(:page).permit(:page_content, :alias, :name)
     end
   end
 end

@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140830233733) do
   end
 
   create_table "pages", force: true do |t|
-    t.string   "content"
+    t.string   "page_content"
     t.string   "alias"
     t.datetime "created_at"
     t.datetime "updated_at"

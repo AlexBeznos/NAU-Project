@@ -48,7 +48,6 @@ module API
 
       head :no_content
     end
-    
     private
     def tl_params
       params.require(:category).permit(:name)

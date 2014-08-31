@@ -63,7 +63,6 @@ module API
 
       head :no_content
     end
-    
     private
     def tl_params
       params.require(:document).permit(:name, :doc_path, :open)

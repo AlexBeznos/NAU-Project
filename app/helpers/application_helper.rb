@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def active_li_tag(name, path)
     url = URI.parse(path)
-    content_tag(:li, :class => is_active?(url.path, "active")) do 
+    content_tag(:li, :class => is_active?(url.path, "active")) do
       link_to name, path
     end
   end

@@ -6,7 +6,7 @@ gem 'ember-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
-
+gem 'puma'
 gem "google_drive"
 
 gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-2 sidebar">
-      <ul class="nav nav-sidebar">
+    <div class="col-sm-3 col-md-2 sidebar ">
+      <ul id="sidemenu" class="nav nav-sidebar collapse">
         <li>{{#link-to 'index'}}Main page{{/link-to}}</li>
         <li>{{#link-to 'categories'}}Categories{{/link-to}}</li>
         <li>{{#link-to 'documents'}}Documents{{/link-to}}</li>
@@ -11,6 +11,9 @@
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <button type="button" class="visible-xs btn btn-default center-block" data-toggle="collapse" data-target="#sidemenu">
+        <span class="glyphicon glyphicon-th-list">
+      </button>
       {{ outlet }}
     </div>
   </div>

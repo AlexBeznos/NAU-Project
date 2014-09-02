@@ -2,6 +2,13 @@ NauProj.UpdateFormController = Ember.Controller.extend({
   categories: function() {
     return this.store.find('category')
   }.property('store'),
+  open: function() {
+    if(this.get('model').get('open')) {
+      return true
+    } else {
+      return false
+    };
+  }.property('model.open'),
   proxiedCategory: Ember.computed.map('categories', function(categories) {
     {
       return Ember.ObjectProxy.create({
@@ -17,7 +24,7 @@ NauProj.UpdateFormController = Ember.Controller.extend({
       var id = this.get('model').get('id'),
           fd = new FormData(document.getElementById("uploadForm")),
           controller = this;
-      
+
       fd.append("name", this.get('model').get('name'));
       if(this.get('proxiedItems').length != 0) {
         fd.append("categories", this.get('proxiedItems'))

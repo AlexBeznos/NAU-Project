@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">Name:</label>
     <div class="col-sm-10">
-      {{input type="text" value=model.name}}
+      {{input type="text" class="form-control" value=model.name}}
     </div>
   </div>
   <div class="form-group">
@@ -25,8 +25,17 @@
   </div>
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Categories:</label>
-    <div class="col-sm-10">
+    <div class="col-sm-5">
       <ul class="list-group">
+        <li class="list-group-item center-btn disabled">Already added!</li>
+        {{#each model.category_ids}}
+          <li class="list-group-item">{{name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm-5">
+      <ul class="list-group">
+        <li class="list-group-item center-btn disabled">You can add new ones!</li>
         {{#each proxiedCategory}}
           <li class="list-group-item">{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
         {{/each}}

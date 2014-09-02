@@ -1,6 +1,8 @@
 NauProj.NewsController = Ember.ArrayController.extend({
   isForm: false,
   newsContent: "",
+  sortProperties: ['id'],
+  sortAscending: false,
   actions: {
     createNews: function() {
       var controller = this;

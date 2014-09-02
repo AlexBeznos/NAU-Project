@@ -1,5 +1,7 @@
 NauProj.DocumentsController = Ember.ArrayController.extend({
   isForm: false,
+  sortProperties: ['id'],
+  sortAscending: false,
   categories: function() {
     return this.store.find('category')
   }.property('store'),

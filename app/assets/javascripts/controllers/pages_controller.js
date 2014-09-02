@@ -1,6 +1,8 @@
 NauProj.PagesController = Ember.ArrayController.extend({
   isForm: false,
   pageContent: "",
+  sortProperties: ['id'],
+  sortAscending: false,
   actions: {
     createPage: function() {
       var controller = this;
@@ -20,9 +22,4 @@ NauProj.PagesController = Ember.ArrayController.extend({
       this.get('isForm') ? this.set('isForm', false) : this.set('isForm', true)
     }
   }
-});
-
-Ember.ArrayController.extend({
-  sortProperties: ['id'],
-  sortAscending: false
 });

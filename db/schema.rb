@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830233733) do
+ActiveRecord::Schema.define(version: 20140903113622) do
 
   create_table "admins", force: true do |t|
     t.string   "email"
@@ -74,8 +74,25 @@ ActiveRecord::Schema.define(version: 20140830233733) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index :categories_documents, :category_id
-  add_index :categories_documents, :document_id
-  add_index :users, :category_id
+
+  create_table "worker", force: true do |t|
+    t.string   "fio"
+    t.string   "email"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "worker", ["category_id"], name: "index_worker_on_category_id"
+
+  create_table "workers", force: true do |t|
+    t.string   "fio"
+    t.string   "email"
+    t.string   "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "workers", ["category_id"], name: "index_workers_on_category_id"
 
 end

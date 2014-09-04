@@ -17,7 +17,19 @@
         <tr {{bind-attr class="approved::danger"}}>
           <td>{{id}}</td>
           <td>{{email}}</td>
-          <td>{{category.name}}</td>
+          <td>
+            {{#if isEditCategory}}
+              {{view Ember.Select
+                     content=categories
+                     optionValuePath="content.id"
+                     optionLabelPath="content.name"
+                     value=categoryId
+              }}
+              <a  {{action "update"}}><span class="glyphicon glyphicon-ok"></span></a>
+            {{ else }}
+              <span {{action "editCategory" on="doubleClick"}}>{{category.name}}</span>
+            {{/if}}
+          </td>
           {{worker_fun}}
            {{{worker}}}
           <td class="approve">

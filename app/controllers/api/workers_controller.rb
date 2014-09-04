@@ -48,6 +48,21 @@ module API
 
       head :no_content
     end
+
+    def find
+      worker = Worker.find_by(email: params[:email])
+          
+      if worker
+        hash = {
+          'fio' => worker.fio,
+          'category' => Category.find(worker.category_id).name
+        }
+      else
+        hash = {}
+      end
+      render json: hash
+    end
+
     private
     def tl_params
       params.require(:worker).permit(:fio, :email, :category_id)

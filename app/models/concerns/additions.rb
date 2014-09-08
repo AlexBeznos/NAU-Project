@@ -14,7 +14,7 @@ module Additions
   	path = File.join("public", name)
 
   	File.open(path, "wb") { |f| f.write(file.read) }
-	file = session.upload_from_file(path)
+	  file = session.upload_from_file(path)
 
   	File.delete(path)
     self.doc_path = file.human_url

@@ -22,7 +22,7 @@ describe HomeController do
 
 	describe 'get #smq' do
 		it 'should output only documents with open = true' do
-			document = FactoryGirl.create(:document)
+			document = Document.create!(name: "hello world", doc_path: "upload")
 			document_with = Document.create!(name: "hello world", doc_path: "upload", open: true)
 			get :smq
 			assigns(:documents).should_not include(document)
@@ -31,8 +31,18 @@ describe HomeController do
 	end
 
 	describe 'get #external' do
+		it 'should render external template' do
+			get :external
+			response.should render_template :external
+		end
 	end
 
 	describe 'get #administration' do
+		it 'should render admin layout' do
+			  @request.env["devise.mapping"] = Devise.mappings[:admin]
+	    	sign_in FactoryGirl.create(:admin)
+	    	get :administration
+	    	response.should render_template(:layout => 'admin')
+ 		end
 	end
 end

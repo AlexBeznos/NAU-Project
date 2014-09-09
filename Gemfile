@@ -9,7 +9,7 @@ gem 'autoprefixer-rails'
 gem 'puma'
 gem "google_drive"
 
-gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'
+gem 'active_model_serializers'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'

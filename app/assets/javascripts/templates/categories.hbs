@@ -1,12 +1,12 @@
-<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Add new category</button>
+<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Додати нову категорію працівника</button>
 {{#if isForm}}
   <div class="panel panel-warning panel-category center-block">
     <div class="panel-body">
       <form class="navbar-form center-btn">
         <div class="form-group">
-          {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Put your list name"}}
+          {{input type="text" valueBinding="categoryName" class="form-control" placeholder="Категорія працівника"}}
         </div>
-        <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Submit</button>
+        <button type="submit" class="btn btn-success" {{action 'createCategory'}}>Додати</button>
       </form>
     </div>
   </div>
@@ -16,7 +16,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Сategory</th>
+      <th>Категорія</th>
       <th></th>
     </tr>
   </thead>

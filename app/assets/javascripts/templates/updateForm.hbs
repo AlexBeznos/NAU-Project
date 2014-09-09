@@ -1,33 +1,33 @@
 <form class="form-horizontal" role="form" id="uploadForm">
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Name:</label>
+    <label for="inputEmail3" class="col-sm-2 control-label">Назва документу:</label>
     <div class="col-sm-10">
       {{input type="text" class="form-control" value=model.name}}
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Current path:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Дійсний лінк:</label>
     <div class="col-sm-10">
       {{model.doc_path}}
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">File:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Документ:</label>
     <div class="col-sm-10">
       {{input type="file" class="form-control" name="file"}}
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Is it in open access?</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Документ у відкритому доступі?</label>
     <div class="col-sm-10">
       {{input type="checkbox" checked=open}}
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Categories:</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Категорії працівників:</label>
     <div class="col-sm-5">
       <ul class="list-group">
-        <li class="list-group-item center-btn disabled">Already added!</li>
+        <li class="list-group-item center-btn disabled">Вже добавленні!</li>
         {{#each model.category_ids}}
           <li class="list-group-item">{{name}}</li>
         {{/each}}
@@ -35,7 +35,7 @@
     </div>
     <div class="col-sm-5">
       <ul class="list-group">
-        <li class="list-group-item center-btn disabled">You can add new ones!</li>
+        <li class="list-group-item center-btn disabled">Можна додати!</li>
         {{#each proxiedCategory}}
           <li class="list-group-item">{{content.name}}{{input type="checkbox" class="pull-right" checked=checked}}</li>
         {{/each}}
@@ -44,7 +44,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button {{action 'updateDocument'}} class="btn btn-success">Upload</button>
+      <button {{action 'updateDocument'}} class="btn btn-success">Загрузити</button>
     </div>
   </div>
 </form>

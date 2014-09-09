@@ -31,7 +31,7 @@ NauProj.DocumentsController = Ember.ArrayController.extend({
       });
 
       doc.save().then(function(doc) {
-        $("#createDocument").prepend("<div class='alert alert-warning' role='alert'>Please wait! Your file is uploading!</div>");
+        $("#createDocument").prepend("<div class='alert alert-warning' role='alert'>Будь ласка зачекайте! Ваш файл завантажується!</div>");
         Ember.$.ajax({
           url: '/api/documents/'+ doc.id,
           type: 'PUT',

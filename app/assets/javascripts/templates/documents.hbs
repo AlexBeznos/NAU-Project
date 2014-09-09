@@ -1,29 +1,29 @@
 <br>
-<button class="btn btn-default center-block btn-with_margin" {{action "toggleForm"}}>Open form</button>
+<button class="btn btn-default center-block btn-with_margin" {{action "toggleForm"}}>Додати новий документ</button>
 {{#if isForm}}
   <div class="panel panel-success">
     <div class="panel-body">
       <form class="form-horizontal" role="form" id="createDocument">
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Name:</label>
+          <label for="inputEmail3" class="col-sm-2 control-label">Ім'я:</label>
           <div class="col-sm-10">
             {{input class="form-control" valueBinding="documentName"}}
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">File:</label>
+          <label for="inputPassword3" class="col-sm-2 control-label">Документ:</label>
           <div class="col-sm-10">
             {{input type="file" class="form-control" name="file"}}
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Is it in open access?</label>
+          <label for="inputPassword3" class="col-sm-2 control-label">Документ у відкритому доступі?</label>
           <div class="col-sm-10">
             {{input type="checkbox" checked=open}}
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Categories:</label>
+          <label for="inputPassword3" class="col-sm-2 control-label">Доступний таким категоріям працівників:</label>
           <div class="col-sm-10">
             <ul class="list-group">
               {{#each proxiedCategory}}
@@ -35,8 +35,8 @@
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="btn-group">
-              <button {{action 'createDocument'}} class="btn btn-success">Upload</button>
-              <button {{action "toggleForm"}} class="btn btn-default">Cancel</button>
+              <button {{action 'createDocument'}} class="btn btn-success">Додати</button>
+              <button {{action "toggleForm"}} class="btn btn-default">Відмінити</button>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
   <div class="panel panel-default">
     <div class="panel-body">
       {{#if isUpdating}}
-        <button {{action 'updateForm'}} class="btn btn-default center-block btn-with_margin">Close</button>
+        <button {{action 'updateForm'}} class="btn btn-default center-block btn-with_margin">Закрити</button>
         {{render 'updateForm' this}}
       {{ else }}
         <div class="doc">{{name}}</div>

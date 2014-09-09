@@ -1,18 +1,18 @@
-<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Add new news</button>
+<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Додати новину</button>
 {{#if isForm}}
   <div class="panel panel-warning">
     <div class="panel-body">
     <form>
       <div class="form-group">
-        {{input type="text" valueBinding="newsTitle" class="form-control" placeholder="Заглавление"}}
+        {{input type="text" valueBinding="newsTitle" class="form-control" placeholder="Назва"}}
       </div>
       <div class="form-group">
         {{wysiwyg-editor content=newsContent}}  
       </div>
       <div class="form-group">
-        {{input type="text" valueBinding="newsAlias" class="form-control" placeholder="Алиас"}}
+        {{input type="text" valueBinding="newsAlias" class="form-control" placeholder="Аліас"}}
       </div>
-      <button type="submit" class="btn btn-success" {{action 'createNews'}}>Submit</button>
+      <button type="submit" class="btn btn-success" {{action 'createNews'}}>Додати</button>
     </form>
     </div>
   </div>
@@ -33,8 +33,8 @@
       <div class="panel-body">
         <div class="center-btn">
           <div class="btn-group">
-            <button {{action 'editIt'}} class="btn btn-success">Submit</button>
-            <button {{action 'edit'}} class="btn btn-default">Cancel</button>
+            <button {{action 'editIt'}} class="btn btn-success">Підтвердити</button>
+            <button {{action 'edit'}} class="btn btn-default">Відмінити</button>
           </div>
         </div>
       </div>

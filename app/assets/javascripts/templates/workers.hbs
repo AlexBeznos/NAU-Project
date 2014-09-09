@@ -1,4 +1,4 @@
-<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Add new worker</button>
+<button class="btn btn-default center-block btn-with_margin" {{action 'openForm'}}>Додати працівника</button>
 {{#if isForm}}
   <div class="panel panel-warning center-block">
     <div class="panel-body">
@@ -6,17 +6,17 @@
         <div class="form-group">
           <label for="inputEmail3" class="col-sm-2 control-label">Email:</label>
           <div class="col-sm-10">
-            {{input type="text" valueBinding="mail" class="form-control btn-with_margin" placeholder="Put your mail"}}
+            {{input type="text" valueBinding="mail" class="form-control btn-with_margin"}}
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">FIO:</label>
+          <label for="inputEmail3" class="col-sm-2 control-label">ПІБ:</label>
           <div class="col-sm-10">
-            {{input type="text" valueBinding="fio" class="btn-with_margin form-control" placeholder="Put your fio"}}
+            {{input type="text" valueBinding="fio" class="btn-with_margin form-control"}}
           </div>
         </div>
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Category:</label>
+          <label for="inputEmail3" class="col-sm-2 control-label">Категорія:</label>
           <div class="col-sm-10">
             {{view Ember.Select
                     content=categories
@@ -27,7 +27,7 @@
               }}
           </div>
         </div>
-        <button type="submit" class="btn btn-success" {{action 'create'}}>Submit</button>
+        <button type="submit" class="btn btn-success" {{action 'create'}}>Підтвердити</button>
       </form>
     </div>
   </div>
@@ -37,9 +37,9 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>FIO</th>
+      <th>ПІБ</th>
       <th>Email</th>
-      <th>Category</th>
+      <th>Категорія</th>
       <th></th>
     </tr>
   </thead>

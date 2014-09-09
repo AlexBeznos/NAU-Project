@@ -1,5 +1,4 @@
 module Additions
-  include Conf
   def able_to_download?(user)
     if user
       self.categories.include?(Category.find(user.category_id))
@@ -9,7 +8,7 @@ module Additions
   end
 
   def file_path(file)
-  	session = GoogleDrive.login(MAIL, PASS)
+  	session = GoogleDrive.login(ENV['MAIL'], ENV['PASS'])
   	name = file.original_filename
   	path = File.join("public", name)
 

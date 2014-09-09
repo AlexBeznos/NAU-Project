@@ -232,7 +232,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   autoprefixer-rails
-  bootstrap-sass (~> 3.2.0)
+  bootstrap-sass
   capybara
   devise
   ember-rails

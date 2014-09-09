@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # View
 gem 'ember-rails'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem "google_drive"

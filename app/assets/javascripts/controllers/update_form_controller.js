@@ -30,7 +30,6 @@ NauProj.UpdateFormController = Ember.Controller.extend({
         fd.append("categories", this.get('proxiedItems'))
       }; 
       fd.append("open", this.get('open'));
-      $("#uploadForm").prepend("<div class='alert alert-warning' role='alert'>Будь ласка зачекайте! Ваш файл завантажується!</div>");
       Ember.$.ajax({
         url: '/api/documents/' + id,
         type: 'PUT',

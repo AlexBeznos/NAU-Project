@@ -47,7 +47,7 @@ NauProj.UpdateFormController = Ember.Controller.extend({
           }
         });
       } else {
-        $("#uploadForm").prepend("<div class='alert alert-error' role='alert'>Неможливо зберегти документ без і'мя!</div>");
+        $("#uploadForm").prepend("<div class='alert alert-danger' role='alert'>Неможливо зберегти документ без і'мя!</div>");
       }
     }
   }

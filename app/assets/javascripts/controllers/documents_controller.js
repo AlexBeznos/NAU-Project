@@ -49,7 +49,7 @@ NauProj.DocumentsController = Ember.ArrayController.extend({
           });
         })
       } else {
-        $("#createDocument").prepend("<div class='alert alert-error' role='alert'>Неможливо створити новий документ без назви!</div>");
+        $("#createDocument").prepend("<div class='alert alert-danger' role='alert'>Неможливо створити новий документ без назви!</div>");
       }
     }
   }

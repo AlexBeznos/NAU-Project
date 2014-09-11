@@ -12,7 +12,7 @@ puts %q{
 ++++++++++++++++++++++++++++++++
 }
 
-Admin.create(email: 'beznosa@yahoo.com', password: '0937003321Oli')
+Admin.create(email: ENV['ADMIN_MAIL'], password: ENV['ADMIN_PASS'])
 
 puts %q{
 ++++++++++++++++++++

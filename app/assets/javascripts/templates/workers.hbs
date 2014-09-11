@@ -76,6 +76,12 @@
         </td>
         <td><a {{action "destroy"}}><span class="glyphicon glyphicon-floppy-remove"></span></a></td>
       </tr>
+    {{ else }}
+      <tr>
+        <td>
+          <p class="center-btn">Покищо немає жодного працівнка.</p>
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>

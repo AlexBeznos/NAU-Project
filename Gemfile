@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # View
 gem 'ember-rails'
 gem 'bootstrap-sass'
@@ -8,12 +7,12 @@ gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem "google_drive"
 gem 'puma'
-gem 'active_model_serializers'
+gem 'active_model_serializers', "0.8.2"
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+# gem 'sqlite3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -32,11 +31,13 @@ gem 'turbolinks'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-
-gem 'rails_12factor', group: :production
+group :production do
+  gem 'pg'
+end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'sqlite3'
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails'
 end

@@ -8,7 +8,7 @@ module Additions
   end
 
   def file_path(file)
-  	session = GoogleDrive.login('nauproj@gmail.com', '7895123Boo')
+  	session = GoogleDrive.login(ENV['MAIL'], ENV['PASS'])
   	name = file.original_filename
   	path = File.join("public", name)
 

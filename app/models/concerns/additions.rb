@@ -8,15 +8,13 @@ module Additions
   end
 
   def file_path(file)
-  	session = GoogleDrive.login('nauproj@gmail.com', '7895123Boo')
+
   	name = file.original_filename
-  	path = File.join("public", name)
+    disk = S3_BUCKET.objects[name]
+	  disk.write(file)
+    disk.acl = :public_read
 
-  	File.open(path, "wb") { |f| f.write(file.read) }
-	  file = session.upload_from_file(path)
-
-  	File.delete(path)
-    self.doc_path = file.human_url
+    self.doc_path = disk.public_url.to_s
   end
 
 

@@ -5,7 +5,7 @@ gem 'ember-rails'
 gem 'bootstrap-sass'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
-gem "google_drive"
+gem 'aws-sdk'
 gem 'puma'
 gem 'active_model_serializers', "0.8.2"
 gem 'devise'

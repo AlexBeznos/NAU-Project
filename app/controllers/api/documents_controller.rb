@@ -59,6 +59,7 @@ module API
     # DELETE /documents/1.json
     def destroy
       @document = Document.find(params[:id])
+      @document.delete_attachment
       @document.destroy
 
       head :no_content

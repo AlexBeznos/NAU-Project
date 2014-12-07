@@ -30,4 +30,10 @@ module Additions
   		self.categories << category unless self.categories.include?(category)
   	end
   end
+
+  def delete_attachment
+    document = self.doc_path
+    uri = URI.parse(document)
+    S3_BUCKET.objects.delete(File.basename(uri.path))
+  end
 end

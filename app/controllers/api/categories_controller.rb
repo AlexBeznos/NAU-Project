@@ -1,5 +1,8 @@
 module API
   class CategoriesController < ApplicationController
+    include AdminChecker
+    before_action :check_admin
+    
     # GET /categories
     # GET /categories.json
     def index

@@ -1,5 +1,8 @@
 module API
   class PagesController < ApplicationController
+    include AdminChecker
+    before_action :check_admin
+
     # GET /Pages
     # GET /Pages.json
     def index

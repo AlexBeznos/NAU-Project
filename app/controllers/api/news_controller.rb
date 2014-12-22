@@ -1,8 +1,5 @@
 module API
   class NewsController < ApplicationController
-    include AdminChecker
-    before_action :check_admin
-
     # GET /News
     # GET /News.json
     def index

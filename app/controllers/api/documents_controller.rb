@@ -1,8 +1,5 @@
 module API
   class DocumentsController < ApplicationController
-    include AdminChecker
-    before_action :check_admin
-
     # GET /documents
     # GET /documents.json
     def index

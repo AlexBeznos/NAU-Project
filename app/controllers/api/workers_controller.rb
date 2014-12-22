@@ -1,7 +1,5 @@
 module API
   class WorkersController < ApplicationController
-    include AdminChecker
-    before_action :check_admin
 
     # GET /Workers
     # GET /Workers.json

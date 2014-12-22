@@ -1,7 +1,5 @@
 module API
   class UsersController < ApplicationController
-    include AdminChecker
-    before_action :check_admin
 
     # GET /users
     # GET /users.json
